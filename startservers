@@ -1,0 +1,10 @@
+#!/bin/bash
+#a script to start servers
+
+sudo systemctl start mysql
+sudo systemctl start apache2
+sudo ufw allow Apache\ Full
+sudo ufw reload
+
+
+

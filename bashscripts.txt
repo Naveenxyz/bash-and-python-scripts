@@ -1,0 +1,125 @@
+#!/bin/bash
+#a script to start servers
+
+sudo systemctl start mysql
+sudo systemctl start apache2
+sudo ufw allow Apache\ Full
+sudo ufw reload
+
+
+
+
+#!/bin/bash
+#a script to stop ssh
+
+sudo systemctl start ssh
+sudo ufw allow ssh
+sudo ufw allow OpenSSH
+sudo ufw reload
+
+
+
+#!/bin/bash
+#a script to stop servers
+
+sudo systemctl stop mysql
+sudo systemctl stop apache2
+sudo ufw deny Apache\ Full
+sudo ufw reload
+
+
+
+#!/bin/bash
+#a script to stop ssh
+
+sudo systemctl stop ssh
+sudo ufw deny ssh
+sudo ufw deny OpenSSH
+sudo ufw reload
+
+
+
+#!/bin/bash
+#a script to mesure cpuclock
+watch -n1 "lscpu | grep MHz | awk '{print $1}'"
+
+
+
+#!/bin/bash
+#a script to stress cpu
+sudo stress-ng --cpu 4
+
+
+
+#!/bin/bash
+#a script to print pu info
+
+echo "Meomry:"
+free -h
+echo "disk usage:"
+df -h
+echo "uptime:"
+uptime
+echo "info:"
+uname -a
+echo "useful disks:"
+df -h /dev/sd[a-z][1-9]
+exit
+
+
+
+#!/bin/bash
+#a script to kill plasma
+
+killall plasmashell&&plasmashell
+exit
+
+
+
+
+#!/bin/bash
+#a script to update
+set -e
+
+update(){
+echo "Starting full system update..."
+sudo apt update -yy
+sudo apt dist-upgrade -yy
+}
+
+clean(){
+echo "Cleaning up..."
+sudo apt autoremove -yy
+sudo apt autoclean
+}
+fix(){
+	sudo apt update --fix-missing
+	sudo apt install --fix-broken
+}
+
+leave(){
+echo "...................."
+echo "..Update completed.."
+echo "...................."
+}
+
+if  [ "$1"  ==  "--update" ]; then
+	update
+	leave
+fi
+
+if [ "$1"  ==  "--clean" ]; then
+	clean
+	leave
+fi
+if  [ -n "$1" ]; then
+	echo "invalid"
+	exit
+fi
+
+update
+clean
+leave
+
+
+

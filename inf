@@ -1,0 +1,15 @@
+#!/bin/bash
+#a script to print pu info
+
+echo -e "Meomry:"
+free -h
+echo -e "\nuptime:"
+uptime
+echo -e "\ninfo:"
+uname -a
+echo -e "\nuseful disks:"
+df -h /dev/sd[a-z][1-9]
+exit
+
+
+

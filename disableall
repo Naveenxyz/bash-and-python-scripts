@@ -1,0 +1,16 @@
+#!/bin/bash
+#a script to stop servers
+
+sudo systemctl stop ssh
+sudo systemctl stop apache2
+sudo systemctl stop mysql
+sudo systemctl stop icecast2
+sudo /lib/systemd/systemd-sysv-install disable icecast2
+sudo systemctl disable ssh
+sudo systemctl disable apache2
+sudo systemctl disable mysql
+sudo ufw deny ssh
+sudo ufw deny OpenSSH
+sudo ufw deny Apache\ Full
+sudo ufw deny 8000/tcp
+sudo ufw reload

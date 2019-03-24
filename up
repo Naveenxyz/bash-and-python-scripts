@@ -1,0 +1,57 @@
+#!/bin/bash
+#a script to update
+#set -e
+
+update(){
+sudo echo "Starting full system update..."	
+sudo apt update -yy
+sudo apt dist-upgrade -yy
+}
+
+clean(){
+sudo echo "Cleaning up..."
+sudo apt autoremove -yy
+sudo apt autoclean
+}
+fix(){
+	sudo apt update --fix-missing
+	sudo apt install --fix-broken
+}
+
+leave(){
+echo "...................."
+echo "..Update completed.."
+echo "...................."
+}
+
+if  [ "$1"  ==  "--update" ]; then
+	update
+	leave
+fi
+
+if [ "$1"  ==  "--fix" ]; then
+    sudo echo " fixing apt "
+    sudo rm /var/cache/apt/archives/lock
+    sudo rm /var/lib/apt/lists/lock
+    sudo rm /var/lib/dpkg/lock
+    sudo rm /var/lib/dpkg/lock-frontend
+    sudo rm /var/lib/dpkg/lock-frontend
+    sudo apt autoremove -yy
+    sudo apt-get install -f
+    sudo apt autoclean
+    fix
+    echo "...................."
+    echo "..Fixing completed.."
+    echo "...................."
+    exit 0
+fi
+
+if [ "$1"  ==  "--clean" ]; then
+	clean
+	leave
+fi
+
+update
+leave
+
+

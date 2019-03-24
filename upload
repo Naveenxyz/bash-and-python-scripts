@@ -1,0 +1,3 @@
+#!/bin/bash
+set -e
+rsync -avzhp --exclude '*.git*' $1 root@172.16.100.177:$2 

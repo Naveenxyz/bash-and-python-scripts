@@ -1,0 +1,10 @@
+#!/bin/bash
+#a script to stop servers
+
+sudo systemctl stop mysql
+sudo systemctl stop apache2
+sudo ufw deny Apache\ Full
+sudo ufw reload
+
+
+

@@ -1,0 +1,25 @@
+#!/bin/bash
+#a script to start servers
+set -x
+sudo systemctl start mysql
+sudo systemctl start apache2
+sudo ufw allow Apache\ Full
+
+
+#a script to stop ssh
+
+sudo systemctl start ssh
+sudo ufw allow ssh
+sudo ufw allow OpenSSH
+
+
+
+
+#!/bin/bash
+#a script to start live stream
+
+sudo systemctl start icecast2
+sudo ufw allow 8000/tcp
+sudo ufw reload
+sudo ffmpeg -f alsa -i hw:1,0 -acodec libmp3lame -ab 32k -ac 1 -content_type audio/mpeg -f mp3 icecast://source:password@127.0.0.1:8000/stream
+

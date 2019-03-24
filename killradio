@@ -1,0 +1,22 @@
+#!/bin/bash
+#a script to stop servers
+set -x
+sudo systemctl stop mysql
+sudo systemctl stop apache2
+sudo ufw deny Apache\ Full
+
+
+
+#a script to stop ssh
+
+sudo systemctl stop ssh
+sudo ufw deny ssh
+sudo ufw deny OpenSSH
+
+
+
+#a script to start live stream
+sudo systemctl stop icecast2
+sudo ufw deny 8000/tcp
+sudo ufw reload
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+#a script to start live stream
+
+sudo systemctl start icecast2
+sudo ufw allow 8000/tcp
+sudo ufw reload
+sudo ffmpeg -f alsa -i hw:1,0 -acodec libmp3lame -ab 32k -ac 1 -content_type audio/mpeg -f mp3 icecast://source:password@127.0.0.1:8000/stream
+

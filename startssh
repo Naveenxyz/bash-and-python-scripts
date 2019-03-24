@@ -1,0 +1,10 @@
+#!/bin/bash
+#a script to stop ssh
+
+sudo systemctl start ssh
+sudo ufw allow ssh
+sudo ufw allow OpenSSH
+sudo ufw reload
+
+
+

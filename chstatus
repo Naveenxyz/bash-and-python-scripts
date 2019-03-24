@@ -1,0 +1,12 @@
+#!/bin/bash
+#a script to check status
+
+sudo ufw status
+echo "SSH status :"
+ps aux | grep ssh
+echo "Apache server status :"
+ps aux | grep apache2
+echo "MySql server status :"
+ps aux | grep mysql
+echo "Samba server status :"
+ps aux | grep smb

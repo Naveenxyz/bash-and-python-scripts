@@ -1,0 +1,8 @@
+#!/bin/bash
+#a script to kill plasma
+
+killall plasmashell&&plasmashell
+exit
+
+
+

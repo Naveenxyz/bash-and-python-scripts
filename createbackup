@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+sudo rm -rf ~/code/system_files
+sudo mkdir ~/code/system_files
+sudo mkdir ~/code/system_files/configs
+sudo cp -r ~/.config/kde* ~/code/system_files/configs
+sudo cp -r ~/bin ~/code/system_files
+sudo cp -r ~/.bashrc ~/code/system_files/bashrc.txt
+sudo cp -r ~/.vimrc ~/code/system_files/vimrc.txt
+sudo cp -r /etc/samba/smb.conf ~/code/system_files
+sudo chmod -R 777 ~/code/system_files
+sudo rm -rf /home/naveen/code/system_files/bin/robo3t
+sudo rm -rf ~/code/system_files/configs/Code
+sudo snap list >> ~/code/system_files/snaplist.txt

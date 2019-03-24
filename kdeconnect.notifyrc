@@ -1,0 +1,25 @@
+[Event/callReceived]
+Action=Popup|TTS
+Execute=
+Logfile=
+Sound=
+TTS=your phone is ringing
+
+[Event/notification]
+Action=Popup|TTS
+Execute=
+Logfile=
+Sound=
+TTS=
+
+[Event/smsReceived]
+Execute=
+Logfile=
+Sound=
+TTS=
+
+[Event/transferReceived]
+Execute=
+Logfile=
+Sound=
+TTS=

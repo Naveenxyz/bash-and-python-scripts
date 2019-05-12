@@ -1,0 +1,1 @@
+du -a ~/.config/ ~/bin/ | awk '{print $2}' | fzy | xargs -r vim 

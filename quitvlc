@@ -1,0 +1,1 @@
+ps aux | grep vlc | cut -d" " -f5 |  sed 1q | xargs kill -9

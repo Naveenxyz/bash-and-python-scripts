@@ -1,0 +1,1 @@
+history | sort -nr |awk '{$1="";print}' | dmenu -l 30 | tr '\n' ' ' | sed 's/ //;s/ $//' | xclip -selection c

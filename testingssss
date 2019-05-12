@@ -1,0 +1,2 @@
+echo "password" | sudo -S -k apt update
+EOF
